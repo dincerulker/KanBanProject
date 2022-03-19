@@ -32,7 +32,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAuthor = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -40,7 +40,7 @@
             // Title
             // 
             this.Title.AutoSize = true;
-            this.Title.Location = new System.Drawing.Point(12, 9);
+            this.Title.Location = new System.Drawing.Point(13, 45);
             this.Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(81, 20);
@@ -50,34 +50,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Location = new System.Drawing.Point(15, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Author :";
+            this.label2.Text = "Task        :";
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(91, 44);
+            this.txtAuthor.Location = new System.Drawing.Point(110, 10);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(184, 26);
             this.txtAuthor.TabIndex = 3;
             // 
-            // btnSave
+            // btnCreate
             // 
-            this.btnSave.BackgroundImage = global::KanBanProject.Properties.Resources.diskette;
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSave.Location = new System.Drawing.Point(228, 76);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(42, 40);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnCreate.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreate.BackgroundImage = global::KanBanProject.Properties.Resources.add;
+            this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCreate.Location = new System.Drawing.Point(252, 76);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(42, 40);
+            this.btnCreate.TabIndex = 4;
+            this.btnCreate.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
             this.btnExit.BackgroundImage = global::KanBanProject.Properties.Resources.button;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.Location = new System.Drawing.Point(180, 76);
+            this.btnExit.Location = new System.Drawing.Point(204, 76);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(42, 40);
             this.btnExit.TabIndex = 5;
@@ -86,8 +87,9 @@
             // 
             // cboCategory
             // 
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(91, 6);
+            this.cboCategory.Location = new System.Drawing.Point(110, 42);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(184, 28);
             this.cboCategory.TabIndex = 6;
@@ -96,11 +98,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(287, 127);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(306, 127);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Title);
@@ -121,7 +123,7 @@
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAuthor;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ComboBox cboCategory;
     }
