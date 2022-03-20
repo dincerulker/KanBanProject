@@ -29,9 +29,9 @@ namespace KanBanProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTodo = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpInProgress = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpDone = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,26 +45,26 @@ namespace KanBanProject
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flpTodo
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 67);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(266, 371);
-            this.flowLayoutPanel1.TabIndex = 8;
+            this.flpTodo.Location = new System.Drawing.Point(12, 67);
+            this.flpTodo.Name = "flpTodo";
+            this.flpTodo.Size = new System.Drawing.Size(266, 371);
+            this.flpTodo.TabIndex = 8;
             // 
-            // flowLayoutPanel2
+            // flpInProgress
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(284, 67);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(266, 371);
-            this.flowLayoutPanel2.TabIndex = 8;
+            this.flpInProgress.Location = new System.Drawing.Point(284, 67);
+            this.flpInProgress.Name = "flpInProgress";
+            this.flpInProgress.Size = new System.Drawing.Size(266, 371);
+            this.flpInProgress.TabIndex = 8;
             // 
-            // flowLayoutPanel3
+            // flpDone
             // 
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(556, 67);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(266, 371);
-            this.flowLayoutPanel3.TabIndex = 8;
+            this.flpDone.Location = new System.Drawing.Point(556, 67);
+            this.flpDone.Name = "flpDone";
+            this.flpDone.Size = new System.Drawing.Size(266, 371);
+            this.flpDone.TabIndex = 8;
             // 
             // label1
             // 
@@ -168,9 +168,9 @@ namespace KanBanProject
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel3);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flpDone);
+            this.Controls.Add(this.flpInProgress);
+            this.Controls.Add(this.flpTodo);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainProjectForm";
@@ -186,9 +186,9 @@ namespace KanBanProject
         #endregion
 
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flpTodo;
+        private System.Windows.Forms.FlowLayoutPanel flpInProgress;
+        private System.Windows.Forms.FlowLayoutPanel flpDone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

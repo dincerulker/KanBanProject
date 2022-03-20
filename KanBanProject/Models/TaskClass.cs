@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace KanBanProject.Models
 {
-    public class Task
+    public class TaskClass
     {
-        public Task()
+        public TaskClass()
         {
             Id = Guid.NewGuid();
             OlusturmaZamanı = DateTime.Now;
             TaskEnum = TaskEnum.Todo;
 
         }
+
         public Guid Id { get; set; }
         public string Acıklama { get; set; }
         public DateTime OlusturmaZamanı { get; set; }

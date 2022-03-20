@@ -1,9 +1,11 @@
 ﻿using KanBanProject.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,14 +30,11 @@ namespace KanBanProject
             DialogResult dr = newTaskForm.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                kanbanData.Projeler.Add(kBProject);
                 MainProjectForm mainProjectForm = new MainProjectForm(kBProject, kanbanData);
+                kanbanData.Projeler.Add(kBProject);
                 mainProjectForm.MdiParent = this;
                 mainProjectForm.Show();
             }
-            
-
-
 
         }
 
@@ -49,5 +48,6 @@ namespace KanBanProject
         {
             this.Refresh();
         }
+
     }
 }

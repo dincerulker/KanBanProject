@@ -12,11 +12,11 @@ namespace KanBanProject.Models
         {
             Id = Guid.NewGuid();
             OlusturmaZamani = DateTime.Now;
-            Gorevler = new List<Task>();
+            Gorevler = new List<TaskClass>();
         }
         public Guid Id { get; set; }
         public string Ad { get; set; }
         public DateTime OlusturmaZamani { get; set; }
-        public List<Task> Gorevler { get; set; }
+        public List<TaskClass> Gorevler { get; set; }
     }
 }

@@ -15,15 +15,16 @@ namespace KanBanProject
     {
         private readonly KBProject kbProject;
         private readonly KanbanData kanbanData;
-
-        public MainProjectForm(KBProject kbProject,KanbanData kanbanData)
+        
+        public MainProjectForm(KBProject kbProject, KanbanData kanbanData)
         {
             InitializeComponent();
             this.kbProject = kbProject;
             this.kanbanData = kanbanData;
             lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
-            
+
         }
+        Form formHome;
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -32,7 +33,10 @@ namespace KanBanProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            TaskForm taskForm = new TaskForm();
+            taskForm.StartPosition = FormStartPosition.CenterParent;
+            taskForm.ShowDialog();
+            
         }
     }
 }
