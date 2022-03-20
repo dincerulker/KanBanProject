@@ -55,11 +55,11 @@
     <Compile Include="CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="KanbanMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="KanbanMain.Designer.cs">
+      <DependentUpon>KanbanMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MainProjectForm.cs">
       <SubType>Form</SubType>
@@ -67,6 +67,11 @@
     <Compile Include="MainProjectForm.Designer.cs">
       <DependentUpon>MainProjectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\KanbanData.cs" />
+    <Compile Include="Models\KBProject.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\TaskEnum.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +80,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="KanbanMain.resx">
+      <DependentUpon>KanbanMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainProjectForm.resx">
       <DependentUpon>MainProjectForm.cs</DependentUpon>
@@ -97,6 +108,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +135,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="kanban.ico" />
+    <None Include="Resources\Priority-scale-levels-of-hierarchy.jpg" />
+    <None Include="Resources\Priority-scale-levels-of-hierarchy.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\button.png" />
     <None Include="Resources\diskette.png" />

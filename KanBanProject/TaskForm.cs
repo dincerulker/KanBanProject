@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace KanBanProject
 {
-    public partial class MainForm : Form
+    public partial class TaskForm : Form
     {
-        public MainForm()
+        public TaskForm()
         {
             InitializeComponent();
-        }
-
-        private void tsmiNewTask_Click(object sender, EventArgs e)
-        {
-            NewTaskForm newTaskForm = new NewTaskForm();
-            newTaskForm.ShowDialog();
         }
     }
 }

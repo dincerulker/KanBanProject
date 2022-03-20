@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KanBanProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,26 @@ namespace KanBanProject
 {
     public partial class MainProjectForm : Form
     {
-        public MainProjectForm()
+        private readonly KBProject kbProject;
+        private readonly KanbanData kanbanData;
+
+        public MainProjectForm(KBProject kbProject,KanbanData kanbanData)
         {
             InitializeComponent();
+            this.kbProject = kbProject;
+            this.kanbanData = kanbanData;
+            lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
