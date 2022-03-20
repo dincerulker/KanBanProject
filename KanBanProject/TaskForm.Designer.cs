@@ -99,6 +99,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TaskForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.TaskForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -23,8 +23,7 @@ namespace KanBanProject
             this.kanbanData = kanbanData;
             lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
 
-        }
-        Form formHome;
+        }      
 
         private void btnExit_Click(object sender, EventArgs e)
         {

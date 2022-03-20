@@ -18,35 +18,34 @@ namespace KanBanProject
     public partial class CategoryForm : Form
     {
         public KanbanData _kanbanData;
-        List<Category> categories = new List<Category>();
+        public List<Category> categories = new List<Category>();
         public CategoryForm(KanbanData kanbanData)
         {
-
             InitializeComponent();
             _kanbanData = kanbanData;
+            Category category = new Category();            
         }
-
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
-            this.Close();
+            this.Close(); // sayfanın çıkış butonunu kapatıldı, çıkmak için buton eklendi.
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Category cat = new Category();
-            cat.Ad = txtCategoryName.Text;
-            categories.Add(cat);
-            cat.ColorName = pbColor.BackColor.ToString();
-            dgvCategories.DataSource = null;
-            dgvCategories.DataSource = categories;
-            dgvCategories.Columns["Id"].Visible = false;
-            dgvCategories.Columns["Color"].Visible = false;
-            txtCategoryName.Clear();
-            pbColor.BackColor = Color.Red;
-
-
+            if (txtCategoryName.Text != "") // categori ismi boş olursa ekleme yapmayacak
+            {
+                Category cat = new Category();
+                cat.Ad = txtCategoryName.Text;
+                categories.Add(cat);
+                cat.ColorName = pbColor.BackColor.ToString();
+                dgvCategories.DataSource = null;
+                dgvCategories.DataSource = categories;
+                dgvCategories.Columns["Id"].Visible = false;
+                dgvCategories.Columns["Color"].Visible = false;
+                txtCategoryName.Clear();
+                pbColor.BackColor = Color.Red;
+            }
         }
 
         private void pbColor_Click(object sender, EventArgs e)
@@ -65,10 +64,8 @@ namespace KanBanProject
         {
             dgvCategories.DataSource = null; // önce datasource 'u boşaltıyoruz...
 
-
-            
             try
-            {                
+            {
                 categories = new List<Category>();
                 string jsonRead = File.ReadAllText("categories.json");
                 categories = JsonConvert.DeserializeObject<List<Category>>(jsonRead);
@@ -83,5 +80,6 @@ namespace KanBanProject
             }
 
         }
+
     }
 }
