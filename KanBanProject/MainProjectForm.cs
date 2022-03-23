@@ -24,12 +24,7 @@ namespace KanBanProject
             _kanbanData = kanbanData;
             lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
 
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        }        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

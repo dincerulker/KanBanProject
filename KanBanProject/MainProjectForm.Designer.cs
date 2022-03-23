@@ -39,7 +39,6 @@ namespace KanBanProject
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiTodoCopy = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,20 +54,26 @@ namespace KanBanProject
             // flpInProgress
             // 
             this.flpInProgress.AllowDrop = true;
+            this.flpInProgress.AutoScroll = true;
+            this.flpInProgress.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpInProgress.Location = new System.Drawing.Point(284, 67);
             this.flpInProgress.Name = "flpInProgress";
             this.flpInProgress.Size = new System.Drawing.Size(266, 371);
             this.flpInProgress.TabIndex = 8;
+            this.flpInProgress.WrapContents = false;
             this.flpInProgress.DragDrop += new System.Windows.Forms.DragEventHandler(this.flpInProgress_DragDrop);
             this.flpInProgress.DragEnter += new System.Windows.Forms.DragEventHandler(this.flpInProgress_DragEnter);
             // 
             // flpDone
             // 
             this.flpDone.AllowDrop = true;
+            this.flpDone.AutoScroll = true;
+            this.flpDone.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpDone.Location = new System.Drawing.Point(556, 67);
             this.flpDone.Name = "flpDone";
             this.flpDone.Size = new System.Drawing.Size(266, 371);
             this.flpDone.TabIndex = 8;
+            this.flpDone.WrapContents = false;
             this.flpDone.DragDrop += new System.Windows.Forms.DragEventHandler(this.flpDone_DragDrop);
             this.flpDone.DragEnter += new System.Windows.Forms.DragEventHandler(this.flpDone_DragEnter);
             // 
@@ -140,17 +145,6 @@ namespace KanBanProject
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
-            // btnExit
-            // 
-            this.btnExit.BackgroundImage = global::KanBanProject.Properties.Resources.button;
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.Location = new System.Drawing.Point(799, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(24, 24);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,31 +165,35 @@ namespace KanBanProject
             // tsmiTodoCopy
             // 
             this.tsmiTodoCopy.Name = "tsmiTodoCopy";
-            this.tsmiTodoCopy.Size = new System.Drawing.Size(146, 22);
+            this.tsmiTodoCopy.Size = new System.Drawing.Size(180, 22);
             this.tsmiTodoCopy.Text = "to ToDo";
             this.tsmiTodoCopy.Click += new System.EventHandler(this.tsmiTodoCopy_Click);
             // 
             // tsmiInProgressCopy
             // 
             this.tsmiInProgressCopy.Name = "tsmiInProgressCopy";
-            this.tsmiInProgressCopy.Size = new System.Drawing.Size(146, 22);
+            this.tsmiInProgressCopy.Size = new System.Drawing.Size(180, 22);
             this.tsmiInProgressCopy.Text = "to In Progress";
             this.tsmiInProgressCopy.Click += new System.EventHandler(this.tsmiInProgressCopy_Click);
             // 
             // tsmiDoneCopy
             // 
             this.tsmiDoneCopy.Name = "tsmiDoneCopy";
-            this.tsmiDoneCopy.Size = new System.Drawing.Size(146, 22);
+            this.tsmiDoneCopy.Size = new System.Drawing.Size(180, 22);
             this.tsmiDoneCopy.Text = "to Done";
             this.tsmiDoneCopy.Click += new System.EventHandler(this.tsmiDoneCopy_Click);
             // 
             // flpTodo
             // 
             this.flpTodo.AllowDrop = true;
+            this.flpTodo.AutoScroll = true;
+            this.flpTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.flpTodo.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpTodo.Location = new System.Drawing.Point(12, 67);
             this.flpTodo.Name = "flpTodo";
             this.flpTodo.Size = new System.Drawing.Size(266, 371);
             this.flpTodo.TabIndex = 8;
+            this.flpTodo.WrapContents = false;
             this.flpTodo.DragDrop += new System.Windows.Forms.DragEventHandler(this.flpTodo_DragDrop);
             this.flpTodo.DragEnter += new System.Windows.Forms.DragEventHandler(this.flpTodo_DragEnter);
             // 
@@ -226,8 +224,7 @@ namespace KanBanProject
             this.Controls.Add(this.flpDone);
             this.Controls.Add(this.flpInProgress);
             this.Controls.Add(this.flpTodo);
-            this.Controls.Add(this.btnExit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainProjectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainProjectForm";
@@ -240,8 +237,6 @@ namespace KanBanProject
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
