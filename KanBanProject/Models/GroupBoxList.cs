@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace KanBanProject.Models
 {
-    public class TaskList
-    {
-        public List<TaskClass> NewTaskList;
 
-        public TaskList()
+    public class GroupBoxList
+    {
+        public List<KanbanGroupBox> NewGroupBoxList;
+        public GroupBoxList()
         {
-            NewTaskList = new List<TaskClass>();
+            NewGroupBoxList = new List<KanbanGroupBox>();
         }
     }
 }

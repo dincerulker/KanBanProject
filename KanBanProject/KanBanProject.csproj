@@ -62,6 +62,12 @@
     <Compile Include="CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DraftForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DraftForm.Designer.cs">
+      <DependentUpon>DraftForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="KanbanMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +85,6 @@
     <Compile Include="Models\KBProject.cs" />
     <Compile Include="Models\TaskClass.cs" />
     <Compile Include="Models\TaskEnum.cs" />
-    <Compile Include="Models\TaskList.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DraftForm.resx">
+      <DependentUpon>DraftForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KanbanMain.resx">
       <DependentUpon>KanbanMain.cs</DependentUpon>
@@ -144,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="kanban.ico" />
+    <None Include="Resources\delete %281%29.png" />
     <None Include="Resources\Priority-scale-levels-of-hierarchy.jpg" />
     <None Include="Resources\Priority-scale-levels-of-hierarchy.png" />
     <None Include="Resources\add.png" />

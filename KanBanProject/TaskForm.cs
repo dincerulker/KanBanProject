@@ -16,13 +16,26 @@ namespace KanBanProject
 
     public partial class TaskForm : Form
     {
-        public TaskForm()
+        private readonly KBProject _kanbanProject;
+        private readonly KanbanData _kanbanData;
+        DraftForm draftForm = new DraftForm();
+        
+        public TaskForm(KBProject kanbanProject, KanbanData kanbanData)
         {
             InitializeComponent();
+            _kanbanProject = kanbanProject;
+            _kanbanData = kanbanData;
+            KategorileriEkle();
+            lblCharacterNumber.BackColor = Color.Green;
+            draftForm.txtCreatingTime.Text = DateTime.Now.ToString();
         }
-        TaskList taskList = null;
 
-
+        private void KategorileriEkle()
+        {
+            cmbCategories.Items.Clear();
+            cmbCategories.DataSource = _kanbanData.Kategoriler;
+        }
+             
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -30,34 +43,43 @@ namespace KanBanProject
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (cmbCategories.SelectedItem == null)
+            if (!string.IsNullOrEmpty(txtTask.Text))
             {
-                MessageBox.Show("Lütfen kategori seçiniz!");
+                TaskClass task = new TaskClass()
+                {
+                    Category = (Category)cmbCategories.SelectedItem,
+                    Acıklama = txtTask.Text
+                };
+                _kanbanProject.Gorevler.Add(task);
+                this.Close();
             }
             else
             {
-                TaskClass newTask = new TaskClass();
-                newTask.Acıklama = txtAciklama.Text;
-                newTask.OlusturmaZamanı = DateTime.Now;
-                taskList.NewTaskList.Add(newTask);
+                MessageBox.Show("Please enter description");
+                return;
             }
         }
 
         private void cmbCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Category category = (Category)cmbCategories.SelectedItem;
+            draftForm.pnlCategoryColor.BackColor = category.Color;
+            draftForm.txtTaskCategory.Text = category.Ad;
         }
 
-        private void TaskForm_Load(object sender, EventArgs e)
+        private void txtAciklama_TextChanged(object sender, EventArgs e)
         {
-            // kaydedilmiş json dosyasından ad kısmını çekip categori isimleri olarak combobox a ekleme kodu.
-
-            string jsonRead = File.ReadAllText("categories.json");
-            dynamic array = JsonConvert.DeserializeObject<List<Category>>(jsonRead);
-            foreach (var item in array)
+            int characterCount = txtTask.Text.Length;
+            if (characterCount < 140)
             {
-                cmbCategories.Items.Add(item.Ad);
+                lblCharacterNumber.BackColor = Color.Green;
             }
+            else
+            {
+                lblCharacterNumber.BackColor= Color.Red;
+            }
+            lblCharacterNumber.Text = "Remaining Character :" + (140 - characterCount).ToString();
+            draftForm.txtTaskArea.Text = txtTask.Text;
         }
     }
 }

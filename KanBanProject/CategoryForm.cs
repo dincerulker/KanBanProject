@@ -17,7 +17,7 @@ namespace KanBanProject
 {
     public partial class CategoryForm : Form
     {
-        public KanbanData _kanbanData;
+        private readonly KanbanData _kanbanData;
         public List<Category> categories = new List<Category>();
         public CategoryForm(KanbanData kanbanData)
         {
@@ -35,16 +35,40 @@ namespace KanBanProject
         {
             if (txtCategoryName.Text != "") // categori ismi boş olursa ekleme yapmayacak
             {
-                Category cat = new Category();
-                cat.Ad = txtCategoryName.Text;
-                categories.Add(cat);
-                cat.ColorName = pbColor.BackColor.ToString();
-                dgvCategories.DataSource = null;
-                dgvCategories.DataSource = categories;
-                dgvCategories.Columns["Id"].Visible = false;
-                dgvCategories.Columns["Color"].Visible = false;
+                _kanbanData.Kategoriler.Add(new Category()
+                {
+                    Ad = txtCategoryName.Text,
+                    Color = pbColor.BackColor
+                });
                 txtCategoryName.Clear();
-                pbColor.BackColor = Color.Red;
+                pbColor.BackColor = Color.Black;
+                KategorileriYukle();
+            }
+        }
+
+        private void KategorileriYukle()
+        {
+            lstCategories.Items.Clear();
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(25, 25);
+            lstCategories.SmallImageList = imageList;
+            foreach (Category item in _kanbanData.Kategoriler)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Name = item.Ad + item.Id;
+                lvi.Text = item.Ad;
+                lvi.Tag = item.Id;
+                Bitmap bitmap = new Bitmap(25, 25);
+                for (int i = 0; i < bitmap.Width; i++)
+                {
+                    for (int j = 0; j < bitmap.Height; j++)
+                    {
+                        bitmap.SetPixel(i, j, item.Color);
+                    }
+                }
+                imageList.Images.Add(item.Ad,bitmap);
+                lvi.ImageKey = item.Ad;
+                lstCategories.Items.Add(lvi);
             }
         }
 
@@ -54,32 +78,9 @@ namespace KanBanProject
             pbColor.BackColor = colorDialog1.Color;
         }
 
-        private void CategoryForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void lstCategories_KeyDown(object sender, KeyEventArgs e)
         {
-            string json = JsonConvert.SerializeObject(categories);
-            File.WriteAllText("categories.json", json);
-        }
-
-        private void CategoryForm_Load(object sender, EventArgs e)
-        {
-            dgvCategories.DataSource = null; // önce datasource 'u boşaltıyoruz...
-
-            try
-            {
-                categories = new List<Category>();
-                string jsonRead = File.ReadAllText("categories.json");
-                categories = JsonConvert.DeserializeObject<List<Category>>(jsonRead);
-                dgvCategories.DataSource = categories; // Açılışta datagridview görünmesi için eklendi.
-                dgvCategories.Columns["Id"].Visible = false;
-                dgvCategories.Columns["Color"].Visible = false;
-            }
-            catch (Exception)
-            {
-                categories = new List<Category>();
-                dgvCategories.DataSource = categories;
-            }
 
         }
-
     }
 }

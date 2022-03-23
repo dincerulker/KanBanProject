@@ -38,10 +38,9 @@ namespace KanBanProject
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvCategories = new System.Windows.Forms.DataGridView();
+            this.lstCategories = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -124,21 +123,16 @@ namespace KanBanProject
             this.label3.TabIndex = 19;
             this.label3.Text = "Recommended Color Sample";
             // 
-            // dgvCategories
+            // lstCategories
             // 
-            this.dgvCategories.AllowUserToAddRows = false;
-            this.dgvCategories.AllowUserToDeleteRows = false;
-            this.dgvCategories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvCategories.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategories.Location = new System.Drawing.Point(20, 53);
-            this.dgvCategories.MultiSelect = false;
-            this.dgvCategories.Name = "dgvCategories";
-            this.dgvCategories.ReadOnly = true;
-            this.dgvCategories.RowHeadersVisible = false;
-            this.dgvCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategories.Size = new System.Drawing.Size(452, 232);
-            this.dgvCategories.TabIndex = 20;
+            this.lstCategories.HideSelection = false;
+            this.lstCategories.Location = new System.Drawing.Point(20, 55);
+            this.lstCategories.Name = "lstCategories";
+            this.lstCategories.Size = new System.Drawing.Size(452, 230);
+            this.lstCategories.TabIndex = 20;
+            this.lstCategories.UseCompatibleStateImageBehavior = false;
+            this.lstCategories.View = System.Windows.Forms.View.SmallIcon;
+            this.lstCategories.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstCategories_KeyDown);
             // 
             // CategoryForm
             // 
@@ -146,7 +140,7 @@ namespace KanBanProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(502, 443);
-            this.Controls.Add(this.dgvCategories);
+            this.Controls.Add(this.lstCategories);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label2);
@@ -162,11 +156,8 @@ namespace KanBanProject
             this.Name = "CategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CategoryForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CategoryForm_FormClosing);
-            this.Load += new System.EventHandler(this.CategoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,6 +174,6 @@ namespace KanBanProject
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvCategories;
+        private System.Windows.Forms.ListView lstCategories;
     }
 }

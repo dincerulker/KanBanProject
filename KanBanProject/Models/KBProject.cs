@@ -18,5 +18,9 @@ namespace KanBanProject.Models
         public string Ad { get; set; }
         public DateTime OlusturmaZamani { get; set; }
         public List<TaskClass> Gorevler { get; set; }
+        public override string ToString()
+        {
+            return Ad;
+        }
     }
 }

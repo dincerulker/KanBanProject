@@ -17,6 +17,10 @@ namespace KanBanProject.Models
         public string Ad { get; set; }
         public Color Color { get; set; }
         public string ColorName { get; set; }
+        public override string ToString()
+        {
+            return Ad;
+        }
 
     }
 }

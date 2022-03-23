@@ -12,8 +12,6 @@ namespace KanBanProject.Models
         {
             Id = Guid.NewGuid();
             OlusturmaZamanı = DateTime.Now;
-            TaskEnum = TaskEnum.Todo;
-
         }
 
         public Guid Id { get; set; }
@@ -21,6 +19,10 @@ namespace KanBanProject.Models
         public DateTime OlusturmaZamanı { get; set; }
         public TaskEnum TaskEnum { get; set; }
         public Category Category { get; set; }
+        public override string ToString()
+        {
+            return Acıklama;
+        }
 
     }
 }
