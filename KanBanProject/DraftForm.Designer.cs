@@ -73,7 +73,6 @@
             // 
             // pnlCategoryColor
             // 
-            
             this.pnlCategoryColor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlCategoryColor.Controls.Add(this.txtTaskArea);
             this.pnlCategoryColor.Controls.Add(this.txtTaskCategory);
@@ -98,9 +97,9 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 338);
+            this.ClientSize = new System.Drawing.Size(298, 351);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DraftForm";
             this.Text = "DraftForm";
             this.pnlCategoryColor.ResumeLayout(false);

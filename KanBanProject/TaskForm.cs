@@ -81,5 +81,10 @@ namespace KanBanProject
             lblCharacterNumber.Text = "Remaining Character :" + (140 - characterCount).ToString();
             draftForm.txtTaskArea.Text = txtTask.Text;
         }
+
+        private void TaskForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }

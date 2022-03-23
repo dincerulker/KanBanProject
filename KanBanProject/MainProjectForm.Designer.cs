@@ -227,7 +227,7 @@ namespace KanBanProject
             this.Controls.Add(this.flpInProgress);
             this.Controls.Add(this.flpTodo);
             this.Controls.Add(this.btnExit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainProjectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainProjectForm";
