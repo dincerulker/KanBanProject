@@ -23,7 +23,8 @@ namespace KanBanProject
         {
             InitializeComponent();
             _kanbanData = kanbanData;
-            Category category = new Category();            
+            Category category = new Category();
+            KategorileriYukle();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -66,21 +67,23 @@ namespace KanBanProject
                         bitmap.SetPixel(i, j, item.Color);
                     }
                 }
-                imageList.Images.Add(item.Ad,bitmap);
+                imageList.Images.Add(item.Ad, bitmap);
                 lvi.ImageKey = item.Ad;
                 lstCategories.Items.Add(lvi);
             }
         }
-
+        private void lstCategories_KeyDown(object sender, KeyEventArgs e)
+        {
+            Guid Id = (Guid)lstCategories.SelectedItems[0].Tag;
+            Category silinecek = _kanbanData.Kategoriler.FirstOrDefault(c => c.Id == Id);
+            _kanbanData.Kategoriler.Remove(silinecek);
+            KategorileriYukle();
+        }
         private void pbColor_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             pbColor.BackColor = colorDialog1.Color;
         }
 
-        private void lstCategories_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
     }
 }

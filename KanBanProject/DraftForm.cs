@@ -18,3 +18,5 @@ namespace KanBanProject
         }
     }
 }
+/* Bu form Main project formda yüklenen öğelerin arayüzü için taslak olarak kullanılmıştır.
+ * Form özellikleri direkt olarak yansıtılmıştır ve bu form açılmamaktadır. */

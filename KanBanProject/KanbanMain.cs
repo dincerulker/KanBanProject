@@ -21,6 +21,8 @@ namespace KanBanProject
             InitializeComponent();
             this.IsMdiContainer = true;
             kanbanData = new KanbanData();
+            ListeyiDoldur();
+
         }
 
         private void tsmiNewTask_Click(object sender, EventArgs e)
@@ -35,7 +37,18 @@ namespace KanBanProject
                 mainProjectForm.MdiParent = this;
                 mainProjectForm.Show();
             }
+            ListeyiDoldur();
+        }
 
+        private void ProjeyiListele()
+        {
+            ClearForm();
+            foreach (var item in kanbanData.Projeler)
+            {
+                MainProjectForm mainProjectForm = new MainProjectForm(item, kanbanData);
+                mainProjectForm.MdiParent = this;
+                mainProjectForm.Show();
+            }            
         }
 
         private void tsmiAddCategory_Click(object sender, EventArgs e)
@@ -46,8 +59,76 @@ namespace KanBanProject
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-            this.Refresh();
+            this.Refresh(); // Proje ekranı büyüdüğünde eklenen resmin tam görünmesi için sayfayı yeniledik.
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string json = JsonConvert.SerializeObject(kanbanData);
+            File.WriteAllText("project.json", json);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                string json = File.ReadAllText("project.json");
+                kanbanData = JsonConvert.DeserializeObject<KanbanData>(json);
+            }
+            catch (Exception)
+            {
+
+                kanbanData = new KanbanData();
+            }
+        }
+
+        private void tscTask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tscTask.SelectedIndex == 0)
+            {
+                ClearForm();
+
+            }
+            else if (tscTask.SelectedIndex == 1)
+            {
+                ProjeyiListele();
+            }
+            else
+            {
+                ClearForm();
+                KBProject selected = (KBProject)tscTask.SelectedItem;
+                KBProject kBProject = new KBProject()
+                {
+                    Id = selected.Id,
+                    Ad = selected.Ad,
+                    Gorevler = selected.Gorevler,
+                    OlusturmaZamani = selected.OlusturmaZamani,
+                };
+                MainProjectForm mainProjectForm = new MainProjectForm(kBProject, kanbanData);
+                mainProjectForm.MdiParent = this;
+                mainProjectForm.Show();
+            }
+        }
+
+        private void ClearForm()
+        {
+            foreach (var item in this.MdiChildren)
+            {
+                item.Dispose();
+                item.Close();
+            }
+        }
+
+        private void ListeyiDoldur()
+        {
+            tscTask.Items.Clear();
+            tscTask.Items.Add("KanBan Main Page");
+            tscTask.Items.Add("All Project");
+            for (int i = 0; i < kanbanData.Projeler.Count; i++)
+            {
+                KBProject item = kanbanData.Projeler[i];
+                tscTask.Items.Add(item);
+            }
+        }
     }
 }

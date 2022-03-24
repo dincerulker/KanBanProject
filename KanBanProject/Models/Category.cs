@@ -21,6 +21,5 @@ namespace KanBanProject.Models
         {
             return Ad;
         }
-
     }
 }

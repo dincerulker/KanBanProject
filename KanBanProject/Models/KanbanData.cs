@@ -15,6 +15,5 @@ namespace KanBanProject.Models
         }
         public List<KBProject> Projeler { get; set; }
         public List<Category> Kategoriler { get; set; }
-
     }
 }

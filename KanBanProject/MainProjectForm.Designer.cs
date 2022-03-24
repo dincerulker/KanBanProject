@@ -165,21 +165,21 @@ namespace KanBanProject
             // tsmiTodoCopy
             // 
             this.tsmiTodoCopy.Name = "tsmiTodoCopy";
-            this.tsmiTodoCopy.Size = new System.Drawing.Size(180, 22);
+            this.tsmiTodoCopy.Size = new System.Drawing.Size(146, 22);
             this.tsmiTodoCopy.Text = "to ToDo";
             this.tsmiTodoCopy.Click += new System.EventHandler(this.tsmiTodoCopy_Click);
             // 
             // tsmiInProgressCopy
             // 
             this.tsmiInProgressCopy.Name = "tsmiInProgressCopy";
-            this.tsmiInProgressCopy.Size = new System.Drawing.Size(180, 22);
+            this.tsmiInProgressCopy.Size = new System.Drawing.Size(146, 22);
             this.tsmiInProgressCopy.Text = "to In Progress";
             this.tsmiInProgressCopy.Click += new System.EventHandler(this.tsmiInProgressCopy_Click);
             // 
             // tsmiDoneCopy
             // 
             this.tsmiDoneCopy.Name = "tsmiDoneCopy";
-            this.tsmiDoneCopy.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDoneCopy.Size = new System.Drawing.Size(146, 22);
             this.tsmiDoneCopy.Text = "to Done";
             this.tsmiDoneCopy.Click += new System.EventHandler(this.tsmiDoneCopy_Click);
             // 
@@ -228,6 +228,7 @@ namespace KanBanProject
             this.Name = "MainProjectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainProjectForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainProjectForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

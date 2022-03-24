@@ -1,9 +1,11 @@
 ﻿using KanBanProject.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +15,28 @@ namespace KanBanProject
 {
     public partial class MainProjectForm : Form
     {
+        
         private readonly KBProject _kbProject;
         private readonly KanbanData _kanbanData;
-
-
         public MainProjectForm(KBProject kbProject, KanbanData kanbanData)
         {
             InitializeComponent();
             _kbProject = kbProject;
             _kanbanData = kanbanData;
-            lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
+            BilgileriYazdir(kbProject);
+            ShowPanels();
+        }
 
-        }        
+        private void BilgileriYazdir(KBProject kbProject)
+        {
+            lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
+        }
+        private void ShowPanels()
+        {
+            TodoList();
+            InProggressList();
+            DoneList();
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -52,14 +64,6 @@ namespace KanBanProject
             ShowPanels();
         }
 
-
-        private void ShowPanels()
-        {
-            TodoList();
-            InProggressList();
-            DoneList();
-        }
-
         private void DoneList()
         {
             flpDone.Controls.Clear();
@@ -82,7 +86,6 @@ namespace KanBanProject
                 draftForm.pnlCategoryColor.Tag = DoneTask[i].Id;
             }
         }
-
         private void InProggressList()
         {
             flpInProgress.Controls.Clear();
@@ -103,16 +106,13 @@ namespace KanBanProject
                 draftForm.btnDelete.Tag = InProgressTask[i].Id;
                 draftForm.pnlCategoryColor.MouseDown += PnlCategoryColor_MouseDown;
                 draftForm.pnlCategoryColor.Tag = InProgressTask[i].Id;
-
             }
         }
-
         private void TodoList()
         {
             flpTodo.Controls.Clear();
 
             List<TaskClass> toDoTask = _kbProject.Gorevler.Where(x => x.TaskEnum == TaskEnum.Todo).ToList();
-
 
             for (int i = 0; i < toDoTask.Count; i++)
             {
@@ -131,7 +131,6 @@ namespace KanBanProject
                 draftForm.MouseDown += DraftForm_MouseDown;
                 draftForm.pnlCategoryColor.MouseDown += PnlCategoryColor_MouseDown1;
             }
-
         }
 
         private void PnlCategoryColor_MouseDown1(object sender, MouseEventArgs e)
@@ -144,13 +143,10 @@ namespace KanBanProject
         {
             var mevcutForm = (Panel)sender;
             DoDragDrop(mevcutForm, DragDropEffects.Move);
-
-
         }
 
         private void PnlCategoryColor_MouseDown(object sender, MouseEventArgs e)
         {
-
             if (e.Button == MouseButtons.Right && sender is Panel)
             {
                 contextMenuStrip1.Show((Panel)sender, new Point(e.X, e.Y));
@@ -158,35 +154,24 @@ namespace KanBanProject
             }
         }
 
-
-
         private void flpTodo_DragDrop(object sender, DragEventArgs e)
         {
             Panel panel = (Panel)e.Data.GetData(typeof(Panel));
             panel.Parent.Controls.Remove(panel);
             flpTodo.Controls.Add(panel);
-
         }
-
-
         private void flpInProgress_DragDrop(object sender, DragEventArgs e)
         {
-
             Panel panel = (Panel)e.Data.GetData(typeof(Panel));
             panel.Parent.Controls.Remove(panel);
             flpInProgress.Controls.Add(panel);
-
         }
-
         private void flpDone_DragDrop(object sender, DragEventArgs e)
         {
-
             Panel panel = (Panel)e.Data.GetData(typeof(Panel));
             panel.Parent.Controls.Remove(panel);
             flpDone.Controls.Add(panel);
-
         }
-
         private void tsmiTodoCopy_Click(object sender, EventArgs e)
         {
             Guid guid = (Guid)contextMenuStrip1.Tag;
@@ -213,7 +198,6 @@ namespace KanBanProject
                 OlusturmaZamanı = taskClass.OlusturmaZamanı
             });
             ShowPanels();
-
         }
 
         private void tsmiDoneCopy_Click(object sender, EventArgs e)
@@ -242,6 +226,13 @@ namespace KanBanProject
         private void flpDone_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
+        }
+
+        private void MainProjectForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string json = JsonConvert.SerializeObject(_kanbanData);
+            File.WriteAllText("task.json", json);
+            
         }
     }
 }

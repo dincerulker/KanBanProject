@@ -23,6 +23,5 @@ namespace KanBanProject.Models
         {
             return Acıklama;
         }
-
     }
 }
