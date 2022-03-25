@@ -112,7 +112,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TaskForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TaskForm_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

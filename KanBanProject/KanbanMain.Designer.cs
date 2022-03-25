@@ -83,6 +83,7 @@
             this.tscTask.Name = "tscTask";
             this.tscTask.Size = new System.Drawing.Size(200, 23);
             this.tscTask.SelectedIndexChanged += new System.EventHandler(this.tscTask_SelectedIndexChanged);
+            this.tscTask.Click += new System.EventHandler(this.tscTask_Click);
             // 
             // btnInfo
             // 

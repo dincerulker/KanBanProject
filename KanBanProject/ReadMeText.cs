@@ -17,7 +17,7 @@ namespace KanBanProject
             InitializeComponent();
         }
 
-        // Tıklandığında gerekli sayfa açılıyor       
+        // Tıklandığında eklenen internet sayfaları çılmaktadır.       
 
         private void lblMustafa_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

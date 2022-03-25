@@ -19,15 +19,20 @@ namespace KanBanProject
         private readonly KBProject _kanbanProject;
         private readonly KanbanData _kanbanData;
         DraftForm draftForm = new DraftForm();
-        
+
         public TaskForm(KBProject kanbanProject, KanbanData kanbanData)
         {
             InitializeComponent();
             _kanbanProject = kanbanProject;
             _kanbanData = kanbanData;
             KategorileriEkle();
+            YeniSayfaOzellikleri();
+        }
+
+        private void YeniSayfaOzellikleri()
+        {
             lblCharacterNumber.BackColor = Color.Green;
-            draftForm.txtCreatingTime.Text = DateTime.Now.ToString();
+            draftForm.txtCreatingTime.Text = DateTime.Now.ToShortDateString();
         }
 
         private void KategorileriEkle()
@@ -35,7 +40,7 @@ namespace KanBanProject
             cmbCategories.Items.Clear();
             cmbCategories.DataSource = _kanbanData.Kategoriler;
         }
-             
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -60,6 +65,7 @@ namespace KanBanProject
             }
         }
 
+        // kategori seçimi
         private void cmbCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             Category category = (Category)cmbCategories.SelectedItem;
@@ -67,6 +73,7 @@ namespace KanBanProject
             draftForm.txtTaskCategory.Text = category.Ad;
         }
 
+        // Text 140 karakter içerisinde renk yeşil, 140 karaktere ulaşınca kırmızı olması için eklenmiştir.
         private void txtAciklama_TextChanged(object sender, EventArgs e)
         {
             int characterCount = txtTask.Text.Length;
@@ -76,15 +83,10 @@ namespace KanBanProject
             }
             else
             {
-                lblCharacterNumber.BackColor= Color.Red;
+                lblCharacterNumber.BackColor = Color.Red;
             }
             lblCharacterNumber.Text = "Remaining Character :" + (140 - characterCount).ToString();
             draftForm.txtTaskArea.Text = txtTask.Text;
-        }
-
-        private void TaskForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            
-        }
+        }        
     }
 }

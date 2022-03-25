@@ -22,15 +22,10 @@ namespace KanBanProject
         {
             InitializeComponent();
             _kbProject = kbProject;
-            _kanbanData = kanbanData;
-            BilgileriYazdir(kbProject);
+            _kanbanData = kanbanData;            
             ShowPanels();
-        }
-
-        private void BilgileriYazdir(KBProject kbProject)
-        {
-            lblInfo.Text = "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
-        }
+            this.Text =  "Proje : " + kbProject.Ad + "  " + " Oluşturulma Zamanı : " + kbProject.OlusturmaZamani.ToShortDateString();
+        }        
         private void ShowPanels()
         {
             TodoList();
@@ -133,6 +128,7 @@ namespace KanBanProject
             }
         }
 
+        // Drag-drop özelliği başlatan method
         private void PnlCategoryColor_MouseDown1(object sender, MouseEventArgs e)
         {
             var mevcutForm = (Panel)sender;
@@ -145,6 +141,7 @@ namespace KanBanProject
             DoDragDrop(mevcutForm, DragDropEffects.Move);
         }
 
+        // Projeye sağ tıklayınca kopyala özelliğini açan method
         private void PnlCategoryColor_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && sender is Panel)
@@ -228,6 +225,7 @@ namespace KanBanProject
             e.Effect = DragDropEffects.Move;
         }
 
+        // Json kayıt
         private void MainProjectForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             string json = JsonConvert.SerializeObject(_kanbanData);

@@ -37,7 +37,6 @@ namespace KanBanProject
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddNote = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.lblInfo = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,15 +126,6 @@ namespace KanBanProject
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(12, 454);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(35, 13);
-            this.lblInfo.TabIndex = 11;
-            this.lblInfo.Text = "label4";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.Highlight;
@@ -215,7 +205,6 @@ namespace KanBanProject
             this.ClientSize = new System.Drawing.Size(840, 477);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddNote);
             this.Controls.Add(this.label3);
@@ -243,7 +232,6 @@ namespace KanBanProject
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddNote;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;

@@ -161,7 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="kanban.ico" />
-    <Content Include="ProjectDetails.txt" />
     <None Include="Resources\info.png" />
     <None Include="Resources\delete %281%29.png" />
     <None Include="Resources\Priority-scale-levels-of-hierarchy.jpg" />

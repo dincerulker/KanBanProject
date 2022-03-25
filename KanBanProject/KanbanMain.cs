@@ -22,7 +22,7 @@ namespace KanBanProject
             this.IsMdiContainer = true;
             kanbanData = new KanbanData();
             ListeyiDoldur();
-
+                       
         }
 
         private void tsmiNewTask_Click(object sender, EventArgs e)
@@ -70,6 +70,7 @@ namespace KanBanProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ListeyiDoldur();
             try
             {
                 string json = File.ReadAllText("project.json");
@@ -81,13 +82,17 @@ namespace KanBanProject
                 kanbanData = new KanbanData();
             }
         }
+        // Eski projeyi açmak için combobox'a tıklandığında eski projeleri yükler.
+        private void tscTask_Click(object sender, EventArgs e)
+        {
+            ListeyiDoldur();
+        }
 
         private void tscTask_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             if (tscTask.SelectedIndex == 0)
             {
-                ClearForm();
-
+                ClearForm();   
             }
             else if (tscTask.SelectedIndex == 1)
             {
@@ -124,9 +129,8 @@ namespace KanBanProject
             tscTask.Items.Clear();
             tscTask.Items.Add("KanBan Main Page");
             tscTask.Items.Add("All Project");
-            for (int i = 0; i < kanbanData.Projeler.Count; i++)
+            foreach (KBProject item in kanbanData.Projeler)
             {
-                KBProject item = kanbanData.Projeler[i];
                 tscTask.Items.Add(item);
             }
         }
@@ -144,5 +148,7 @@ namespace KanBanProject
         {
             System.Diagnostics.Process.Start("https://github.com/dincerulker");
         }
+
+        
     }
 }
