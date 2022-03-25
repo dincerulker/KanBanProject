@@ -130,5 +130,19 @@ namespace KanBanProject
                 tscTask.Items.Add(item);
             }
         }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            ReadMeText readMeText = new ReadMeText();
+            readMeText.MdiParent = this;
+            readMeText.Show();
+        }
+
+        // Tıklandığında gerekli sayfa açılıyor
+        
+        private void lblDincerUlker_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/dincerulker");
+        }
     }
 }
